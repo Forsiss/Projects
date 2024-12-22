@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Угадай число</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Угадай число</h1>
+    <p>Я загадал число. Попробуй его угадать!</p>
+    <input type="number" id="guessInput" placeholder="Введите число">
+    <button onclick="checkGuess()">Угадать</button>
+    <p id="result"></p>
+    <div id="timer">
+      Осталось времени: <span id="timeLeft"></span> 
+    </div>
+    <div id="attempts">
+      Осталось попыток: <span id="attemptsLeft"></span>
+    </div>
+    <button onclick="startGame()" id="playAgainButton" style="display: none;">Играть снова</button>
+  <label for = 'difficultyLevel'>
+    <select id = 'difficultyLevel'>
+        <option selected>Выбор сложности</option>
+        <option value = "0-50" >0-50(Легко)</option>
+        <option value = "0-100" >0-100(Средне)</option>
+        <option value = "0-500" >0-500(Сложно)</option>
+    </select>
+  </label>
+  <label for = 'timeDuration'>
+    <select id = "timeDuration">
+      <option selected>Таймер</option>
+      <option value= "30" >30 секунд</option>
+      <option value= "60" >60 секунд</option>
+      <option value= "120" >120 секунд</option>
+    </select>
+  </label>
+  <label for = 'attemptsQuantity'>
+    <select id = "attemptsQuantity">
+      <option selected>Количество попыток</option>
+      <option value = "10" >10 попыток</option>
+      <option value = "20" >20 попыток</option>
+      <option value = "30" >30 попыток</option>
+    </select>
+  </label>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

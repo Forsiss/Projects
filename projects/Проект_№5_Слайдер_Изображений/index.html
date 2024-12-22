@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайдер изображений</title>
+    <style>
+        #container {
+            margin-left: 850px;
+        }
+        #prev-slide{
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        #next-slide{
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        #addSlide{
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .slide.active{
+            display: block;
+        }
+        .slide{
+            width: 10px;
+            height: 100px;
+            display: none;
+            top: 0;
+            left: 0;
+        }
+        .active img{
+            width: 100px;
+            height: 100px;
+        }
+        #slider{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>Слайдер изображений</h1>
+    <div id="slider">
+
+        <div class="slide active">
+            <img src="/10-Css-Html-Js-together/images/paper.png" alt="Slide 1">
+        </div>
+
+        <div class="slide">
+            <img src="/10-Css-Html-Js-together/images/rock.png" alt="Slide 2">
+        </div>
+
+    </div>
+
+    <div id="slider-navigation">
+        <button id="prev-slide"><</button>
+        <button id="next-slide">></button>
+    </div>
+        
+
+    <div class="slide-adder">
+        <input type="URL" id="inputURL" placeholder="Вставьте ссылку на изображение">
+        <button id="addSlide">+</button>
+        <button id="removeSlide">-</button>
+    </div>
+
+    <script>
+        const slider = document.getElementById("slider");//Получаем хранилище слайдов
+        const prevButton = document.getElementById('prev-slide');// Кнопка листать назад
+        const nextButton = document.getElementById('next-slide');// Кнопка листать вперёд
+        const slideUrlInput = document.getElementById('inputURL');// Ссылка на изображение
+        const addSlideButton = document.getElementById('addSlide');// Кнопка добавления слайда
+        const removeSlideButton = document.getElementById('removeSlide') // Кнопка удаления слайда
+        let currentSlide = 0;
+        let totalSlides = 0;
+        console.log(totalSlides)
+
+        function showSlide(n){// Функция прокрутки слайдов
+            const slides = document.querySelectorAll(".slide");// Выделяем все слайды
+            slides[currentSlide].classList.remove('active');// Убираем класс нынешнему слайду
+            currentSlide = (n + slides.length) % slides.length;// Вычисляем нынешнее положение слайда
+            slides[currentSlide].classList.add('active'); // Добавляем класс слайду
+        }
+
+        prevButton.addEventListener('click', () => showSlide(currentSlide - 1));// Добавляем обработчик событий на кнопку предыдущий слайд
+        nextButton.addEventListener('click', () => showSlide(currentSlide + 1));// Добавляем обработчик событий на кнопку следующий слайд
+        removeSlideButton.addEventListener('click', deleteSlide);
+        
+        addSlideButton.addEventListener('click', function(){// Обработчик событий на кнопку создания слайда
+            const imageURL = slideUrlInput.value;// Добавляем переменную, куда будет идти URL изображения
+            if(imageURL) {// Если переменная существует
+                const newSlide = document.createElement('div');// Создаётся контейнер(Новый слайд)
+                newSlide.classList.add('slide');// Добавляется класс
+                const slideImg = document.createElement('img');// Создаётся изображение
+                slideImg.src = imageURL;// Соединяется с ссылкой
+                slideImg.alt = `Slide ${slider.querySelectorAll('.slide').length + 1}`; // Название изображения
+                newSlide.appendChild(slideImg);// Добавление изображения в слайд
+                slider.appendChild(newSlide);// Добавления слайда в слайдер
+
+                currentSlide = slider.querySelectorAll('.slide').length - 1;
+                console.log(totalSlides = slider.querySelectorAll('.slide').length);
+
+            }
+            slideUrlInput.value = "";
+        });
+        
+
+        function deleteSlide(){
+            const slides = document.querySelectorAll(".slide");
+            slides[currentSlide].remove();
+        };
+    </script>
+</body>
+</html>

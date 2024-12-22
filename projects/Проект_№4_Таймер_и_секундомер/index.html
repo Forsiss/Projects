@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Таймер и Секундомер</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <button id = "showFirstTab">Таймер</button>
+  <button id = "showSecondTab">Секундомер</button>
+  <div id="timerTab">
+    <h1 class="timerHeader">Таймер</h1>
+    <div id="timer">00:00:00</div>
+    <input type="number" id="timerInputHours" value="0" min="1" max="24" placeholder="ЧАС">
+    <input type="number" id="timerInputMinutes" value="0" min="1" max="59" placeholder="МИНУТА">
+    <input type="number" id="timerInputSeconds" value="0" min="1" max="59" placeholder="СЕКУНДА">
+    <button id="startTimer">Старт</button>
+    <button id="resetTimer">Сброс</button>
+    <button id="setTime">Установить</button>
+  </div>
+
+  <div id = "stopwatchTab">
+    <h1>Секундомер</h1>
+    <div id="stopwatch">00:00:00</div>
+    <button id="startStopwatch">Старт</button>
+    <button id="stopStopwatch">Стоп</button>
+    <button id="resetStopwatch">Сброс</button>
+    <button id="recordStopwatch">Зафиксировать</button>
+    <h2>История</h2>
+    <ul id="recordList"></ul>
+  </div>
+
+  
+
+  <script src="./script.js"></script>
+</body>
+</html>

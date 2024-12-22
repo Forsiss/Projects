@@ -1,0 +1,33 @@
+#timer, #stopwatch {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#timerTab{
+    text-align: center;
+}
+
+#stopwatchTab{
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#history {
+    margin-top: 50px;
+}
+
+#history ul {
+    list-style: none;
+    padding: 0;
+}
+
+#history li {
+    margin-bottom: 5px;
+}

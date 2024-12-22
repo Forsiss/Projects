@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #ffffff, #1e37aa);
+    color: #333;
+  }
+
+.field{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    border-radius: 5px;
+    background: linear-gradient(to top, rgba(0, 128, 0, 0.733), rgb(255, 145, 0))
+}
+
+.row{
+    height: 100%;
+    width: 100%;
+}
+
+.cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(0, 38, 255);
+    border-radius: 5px;
+    margin: 8px;
+    height: 30.7%;
+    width: 90%;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: background_color 0.3s ease;
+}
+
+.cell:hover{
+    background-color: #1100ff;
+}
+
+.game-message{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #999;
+}
+
+@media (max-width: 600px) {
+    .field{
+        width: 100%;
+        height: 100%;
+    }
+    .cell {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+#tic-tac-toe-board{
+    grid-template-columns: repeat(3, 100%);
+    grid-template-rows:repeat(3, 100%) ;
+}
+
+#resetButton{
+    font-size: 25px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(0, 255, 0, 0.568);
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#resetButton:hover{
+    background-color: rgb(255, 187, 0);
+}
